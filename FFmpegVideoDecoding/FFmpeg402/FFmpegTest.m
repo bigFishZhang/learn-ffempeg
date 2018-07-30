@@ -21,7 +21,7 @@
 //    av_register_all();
     
     // 2 初始化网络 如果需要的话
-    avformat_network_init()
+    avformat_network_init();
     
     // 2 打开封装格式文件
     //封装格式上下文
