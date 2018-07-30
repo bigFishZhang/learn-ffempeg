@@ -48,5 +48,8 @@
     
     NSLog(@"打开文件成功");
     
+    //关闭输入的上下文 释放内存
+    avformat_close_input(&avformat_context);
+    
 }
 @end
