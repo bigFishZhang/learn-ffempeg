@@ -683,7 +683,7 @@
 				DEVELOPMENT_TEAM = P76M9BE8DQ;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFmpeg402/arm64/include";
 				INFOPLIST_FILE = FFmpeg402/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -706,7 +706,7 @@
 				DEVELOPMENT_TEAM = P76M9BE8DQ;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFmpeg402/arm64/include";
 				INFOPLIST_FILE = FFmpeg402/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
