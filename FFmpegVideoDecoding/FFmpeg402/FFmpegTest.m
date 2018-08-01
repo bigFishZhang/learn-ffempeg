@@ -47,7 +47,13 @@
     }
     
     NSLog(@"打开文件成功");
-    
+    //获取流信息 读取部分视频做探测
+    avformat_open_input_result = avformat_find_stream_info(avformat_context, 0);
+    if (avformat_open_input_result != 0) {
+        NSLog(@"avformat_find_stream_info failed!");
+    }
+    //总时长，流的信息
+    NSLog(@"duration =%lld nb_streams = %d",avformat_context->duration,avformat_context->nb_streams);
     //关闭输入的上下文 释放内存
     avformat_close_input(&avformat_context);
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF1C408C21115791000738E3 /* cuc_ieschool.flv in Resources */ = {isa = PBXBuildFile; fileRef = FF1C408B21115791000738E3 /* cuc_ieschool.flv */; };
 		FFFB05F521099E0300C8B133 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB05F421099E0300C8B133 /* AppDelegate.m */; };
 		FFFB05F821099E0300C8B133 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB05F721099E0300C8B133 /* ViewController.m */; };
 		FFFB05FB21099E0300C8B133 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFFB05F921099E0300C8B133 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF1C408B21115791000738E3 /* cuc_ieschool.flv */ = {isa = PBXFileReference; lastKnownFileType = file; path = cuc_ieschool.flv; sourceTree = "<group>"; };
 		FFFB05F021099E0300C8B133 /* FFmpeg402.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFmpeg402.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFFB05F321099E0300C8B133 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FFFB05F421099E0300C8B133 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				FFFB06AA21099EE000C8B133 /* FFmpegTest.h */,
 				FFFB06A921099EE000C8B133 /* FFmpegTest.m */,
+				FF1C408B21115791000738E3 /* cuc_ieschool.flv */,
 				FFFB06A421099EAB00C8B133 /* cat.mp4 */,
 				FFFB060921099E3300C8B133 /* arm64 */,
 				FFFB05F321099E0300C8B133 /* AppDelegate.h */,
@@ -518,6 +521,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF1C408C21115791000738E3 /* cuc_ieschool.flv in Resources */,
 				FFFB060021099E0500C8B133 /* LaunchScreen.storyboard in Resources */,
 				FFFB05FD21099E0500C8B133 /* Assets.xcassets in Resources */,
 				FFFB06A521099EAB00C8B133 /* cat.mp4 in Resources */,
