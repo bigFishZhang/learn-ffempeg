@@ -8,7 +8,13 @@
 
 #import "FFmpegTest.h"
 
+static double r2d(AVRational r){
+    return r.num == 0 || r.den ==0 ? 0: (double)r.num / (double)r.den;
+}
+
+
 @implementation FFmpegTest
+
 //获取配置
 + (void)ffmpegTestConfig{
     const char *config =avcodec_configuration();
@@ -54,8 +60,54 @@
     }
     //总时长，流的信息
     NSLog(@"duration =%lld nb_streams = %d",avformat_context->duration,avformat_context->nb_streams);
+    //打印相关信息
+    int fps = 0;
+    int videoStream = 0;
+    int audioStream = 1;
+    //(1)遍历
+    for (int i = 0; i < avformat_context->nb_streams; i++) {
+        AVStream *as = avformat_context->streams[i];
+        if (as->codecpar->codec_type == AVMEDIA_TYPE_VIDEO) {
+            NSLog(@"VIDEO");
+            videoStream = i;
+            fps = r2d(as->avg_frame_rate);
+            NSLog(@"fps = %d width = %d  height = %d codeid = %d pixformat = %d",
+                  fps,
+                  as->codecpar->width,
+                  as->codecpar->height,
+                  as->codecpar->codec_id,
+                  as->codecpar->format);
+        }
+        if (as->codecpar->codec_type == AVMEDIA_TYPE_AUDIO) {
+            NSLog(@"AUDIO");
+            audioStream = i;
+            NSLog(@"sample_rate = %d channels = %d sample_format = %d",
+                  as->codecpar->sample_rate,
+                  as->codecpar->channels,
+                  as->codecpar->format);
+        }
+    }
+    
+    
+    // ====================================
+    /**
+     获取音视频流的索引
+
+     @param ic#> 上下文 description#>
+     @param type#> 音频/视频流信息类型 description#>
+     @param wanted_stream_nb#> 指定取的流的信息（传 -1） description#>
+     @param related_stream#> 想关流信息（-1） description#>
+     @param decoder_ret#> 解码器 （NULL） description#>
+     @param flags#> 暂时无用 description#>
+     @return <#return value description#>
+     */
+    audioStream = av_find_best_stream(avformat_context, AVMEDIA_TYPE_AUDIO, -1, -1, NULL, 0);
+    NSLog(@" av_find_best_stream : %d ",audioStream);
+    
     //关闭输入的上下文 释放内存
     avformat_close_input(&avformat_context);
-    
 }
+
+
+
 @end
