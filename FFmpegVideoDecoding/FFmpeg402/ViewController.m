@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [FFmpegTest ffmpegTestConfig];
-    NSString *path =  [[NSBundle mainBundle] pathForResource:@"cat" ofType:@".mp4"];
+    NSString *path =  [[NSBundle mainBundle] pathForResource:@"1 ffmpeg介绍" ofType:@".mp4"];
 //    NSString *path2 =  [[NSBundle mainBundle] pathForResource:@"cuc_ieschool" ofType:@".flv"];
     [FFmpegTest ffmpegOpenFile:path];
 //    [FFmpegTest ffmpegOpenFile:path2];

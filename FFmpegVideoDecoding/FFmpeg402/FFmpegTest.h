@@ -12,6 +12,8 @@
 //封装格式库
 #import <libavformat/avformat.h>
 
+//#import <ios>
+
 @interface FFmpegTest : NSObject
 //获取配置
 + (void)ffmpegTestConfig;
