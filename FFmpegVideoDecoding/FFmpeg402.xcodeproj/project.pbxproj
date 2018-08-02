@@ -679,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P76M9BE8DQ;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFmpeg402/arm64/include";
@@ -694,7 +695,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bigfish.FFmpeg402;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -702,6 +703,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P76M9BE8DQ;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/FFmpeg402/arm64/include";
@@ -717,7 +719,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = bigfish.FFmpeg402;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
