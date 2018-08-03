@@ -23,6 +23,7 @@ long long getNowMs(){
     return t;
 }
 
+//遍历打印编解码器
 static void getAllDecoderEncoder(){
     char *info = (char *)malloc(40000);
     memset(info, 0, 40000);
