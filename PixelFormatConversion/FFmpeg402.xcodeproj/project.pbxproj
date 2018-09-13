@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FF1C408C21115791000738E3 /* cuc_ieschool.flv in Resources */ = {isa = PBXBuildFile; fileRef = FF1C408B21115791000738E3 /* cuc_ieschool.flv */; };
+		FF43A5EA2117E5CA000A05E5 /* XPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = FF43A5E92117E5CA000A05E5 /* XPlay.m */; };
 		FFE070412112E77E00E182C4 /* 1 ffmpeg介绍.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FFE070402112E77E00E182C4 /* 1 ffmpeg介绍.mp4 */; };
 		FFFB05F521099E0300C8B133 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB05F421099E0300C8B133 /* AppDelegate.m */; };
 		FFFB05F821099E0300C8B133 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFB05F721099E0300C8B133 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		FF1C408B21115791000738E3 /* cuc_ieschool.flv */ = {isa = PBXFileReference; lastKnownFileType = file; path = cuc_ieschool.flv; sourceTree = "<group>"; };
+		FF43A5E82117E5CA000A05E5 /* XPlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPlay.h; sourceTree = "<group>"; };
+		FF43A5E92117E5CA000A05E5 /* XPlay.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XPlay.m; sourceTree = "<group>"; };
 		FFE070402112E77E00E182C4 /* 1 ffmpeg介绍.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "1 ffmpeg介绍.mp4"; sourceTree = "<group>"; };
 		FFFB05F021099E0300C8B133 /* FFmpeg402.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFmpeg402.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFFB05F321099E0300C8B133 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -241,6 +244,8 @@
 				FFFB05FE21099E0500C8B133 /* LaunchScreen.storyboard */,
 				FFFB060121099E0500C8B133 /* Info.plist */,
 				FFFB060221099E0500C8B133 /* main.m */,
+				FF43A5E82117E5CA000A05E5 /* XPlay.h */,
+				FF43A5E92117E5CA000A05E5 /* XPlay.m */,
 			);
 			path = FFmpeg402;
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				FFFB05F821099E0300C8B133 /* ViewController.m in Sources */,
 				FFFB060321099E0500C8B133 /* main.m in Sources */,
 				FFFB05F521099E0300C8B133 /* AppDelegate.m in Sources */,
+				FF43A5EA2117E5CA000A05E5 /* XPlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,11 +9,15 @@
 #import "FFmpegTest.h"
 #include <sys/time.h>
 extern "C" {
-    //核心库-音视频编解码库
+//核心库-音视频编解码库
 #include <libavcodec/avcodec.h>
-    //封装格式库
+//封装格式库
 #include <libavformat/avformat.h>
+    
 #include <libswscale/swscale.h>
+
+#include <libswresample/swresample.h>
+    
 }
 
 
@@ -216,9 +220,26 @@ static void getAllDecoderEncoder(){
     struct SwsContext * vctx = NULL;
     int outWidth = 1280;
     int outHeight = 720;
-
     char *rgb = new char[1920*1080*4];
-    
+    char *pcm = new char[48000*4*2];
+    //音频重采样上下文初始化
+    SwrContext *actx = swr_alloc();
+    //设置参数
+    actx = swr_alloc_set_opts(actx,
+                              av_get_default_channel_layout(2),//2
+                              AV_SAMPLE_FMT_S16,
+                              ac->sample_rate,
+                              av_get_default_channel_layout(ac->channels),
+                              ac->sample_fmt,
+                              ac->sample_rate,
+                              0,
+                              0);
+    re = swr_init(actx);
+    if (re != 0) {
+        NSLog(@"swr_init failed!");
+    }else{
+        NSLog(@"swr_init success!");
+    }
     long long start = getNowMs();
     int frameCount = 0;
     for (; ; ) {//无线循环
@@ -270,10 +291,26 @@ static void getAllDecoderEncoder(){
                     data[0] = (uint8_t *)rgb;
                     int lines[AV_NUM_DATA_POINTERS] = {0};
                     lines[0] = outWidth * 4;
-                    int h = sws_scale(vctx, frame->data, frame->linesize, 0, frame->height
-                                      , data, lines);
-                    NSLog(@"sws_scale h :%d ",h);
+                    int h = sws_scale(vctx,
+                                      frame->data,
+                                      frame->linesize,
+                                      0,
+                                      frame->height,
+                                      data,
+                                      lines);
+                    //NSLog(@"sws_scale h :%d ",h);
                 }
+            }else{//音频
+                uint8_t *outData[2] = {0};
+                outData[0]  = (uint8_t *)pcm;
+                //重采样
+                int len = swr_convert(actx,//上下文
+                                      outData,
+                                      frame->nb_samples,
+                                      (const uint8_t **)frame->data,
+                                      frame->nb_samples);
+        
+               NSLog(@"swr_convert len :%d ",len);
             }
 
         }
@@ -283,8 +320,8 @@ static void getAllDecoderEncoder(){
         
     }
     
-    delete[] rgb;
-
+    delete [] rgb;
+    delete [] pcm;
     //关闭输入的上下文 释放内存
     avformat_close_input(&ic);
 
