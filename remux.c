@@ -111,6 +111,7 @@ int main(int argc, char *argv[])
       goto end;
     }
   }
+  //1 写头
   ret = avformat_write_header(output_fmt_ctx, NULL);
   if (ret < 0)
   {
@@ -142,7 +143,7 @@ int main(int argc, char *argv[])
     pkt.duration = av_rescale_q(pkt.duration, in_stream->time_base, out_stream->time_base);
     pkt.pos = -1;
     //log_packet(output_fmt_ctx, &pkt, "out");
-    //写入文件
+    //2 写入文件
     ret = av_interleaved_write_frame(output_fmt_ctx, &pkt);
     if (ret < 0)
     {
@@ -151,6 +152,7 @@ int main(int argc, char *argv[])
     }
     av_packet_unref(&pkt);
   }
+  // 3
   av_write_trailer(output_fmt_ctx);
 
 end:
