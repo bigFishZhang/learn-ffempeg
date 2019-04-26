@@ -76,6 +76,7 @@ int av_merge(const char *src_file1, const char *src_file2, const char *out_file)
   //4 Create out stream1 according to input stream1
   if (ifmat_ctx1->nb_streams > 0)
   {
+    // TODO choose stream
     in_stream1 = ifmat_ctx1->streams[0];
     stream1 = 1;
     AVCodecParameters *in_codecpar = in_stream1->codecpar;
@@ -107,6 +108,7 @@ int av_merge(const char *src_file1, const char *src_file2, const char *out_file)
   //5 Create out stream2 according to input stream2
   if (ifmat_ctx2->nb_streams > 0)
   {
+    // TODO choose stream
     in_stream2 = ifmat_ctx2->streams[0];
     stream2 = 1;
     AVCodecParameters *in_codecpar = in_stream2->codecpar;
