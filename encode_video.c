@@ -163,6 +163,7 @@ int encode_video(const char *src_file, const char *codec_name)
   //9 add sequence en code to have a real MPEG file
   fwrite(endecode, 1, sizeof(endecode), f);
   fclose(f);
+  ret = 0;
 __FAIL:
   if (codec_ctx)
   {
@@ -173,7 +174,7 @@ __FAIL:
     av_frame_free(&frame);
   }
 
-  return 0;
+  return ret;
 }
 
 int main(int argc, char *argv[])
