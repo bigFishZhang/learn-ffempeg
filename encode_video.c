@@ -81,7 +81,7 @@ int encode_video(const char *src_file, const char *codec_name)
   frame->width = codec_ctx->width;
   frame->height = codec_ctx->height;
 
-  //7 Allocate new buffer(s) for audio or video data.
+  //7 Allocate new buffer(s) for  video data.
   ret = av_frame_get_buffer(frame, 32);
   if (ret < 0)
   {
@@ -129,7 +129,7 @@ int encode_video(const char *src_file, const char *codec_name)
     frame->pts = i;
 
     // Encode the image
-    ret = avcodec_encode_audio2(codec_ctx, &pkt, frame, &got_output);
+    ret = avcodec_encode_video2(codec_ctx, &pkt, frame, &got_output);
     if (ret < 0)
     {
       av_log(NULL, AV_LOG_ERROR, "Error encoding frame  num: %d \n", i);
@@ -146,15 +146,15 @@ int encode_video(const char *src_file, const char *codec_name)
   for (got_output = 1; got_output; i++)
   {
     fflush(stdout);
-    ret = avcodec_encode_audio2(codec_ctx, &pkt, NULL, &got_output);
+    ret = avcodec_encode_video2(codec_ctx, &pkt, NULL, &got_output);
     if (ret < 0)
     {
-      av_log(NULL, AV_LOG_ERROR, "Error encoding frame  num: %d \n", i);
+      av_log(NULL, AV_LOG_ERROR, "Error encoding  delayed frame  num: %d \n", i);
       goto __FAIL;
     }
     if (got_output)
     {
-      av_log(NULL, AV_LOG_INFO, "Write frame %3d (size = %5d) \n", i, pkt.size);
+      av_log(NULL, AV_LOG_INFO, "Write  delayed frame %3d (size = %5d) \n", i, pkt.size);
       fwrite(pkt.data, 1, pkt.size, f);
       av_packet_unref(&pkt);
     }
