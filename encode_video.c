@@ -23,7 +23,7 @@ int encode_video(const char *src_file, const char *codec_name)
   codec = avcodec_find_encoder_by_name(codec_name);
   if (!codec)
   {
-    av_log(NULL, AV_LOG_ERROR, "Finde codec failed! \n");
+    av_log(NULL, AV_LOG_ERROR, "Finde encoder failed! \n");
     goto __FAIL;
   }
   //2 Alloc context
@@ -184,6 +184,7 @@ int main(int argc, char *argv[])
   {
     printf("Usage: \n "
            "Command src_file codec_name \n");
+    return -1;
   }
   char *src_file = argv[1];
   char *codec_name = argv[2];
@@ -191,6 +192,7 @@ int main(int argc, char *argv[])
   if (ret < 0)
   {
     printf("encode video failed! \n");
+    return ret;
   }
 
   return 0;
